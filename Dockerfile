@@ -11,5 +11,4 @@ RUN npm ci
 
 COPY . .
 
-COPY "entrypoint.sh" "/entrypoint.sh"
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["node", "/index.js"]
