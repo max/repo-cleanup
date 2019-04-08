@@ -5,6 +5,11 @@ Toolkit.run(tools => {
     affiliation: "owner"
   });
 
+  tools.github.authenticate({
+    type: "token",
+    token: `token ${process.env.PAT}`
+  });
+
   tools.github
     .paginate(options, response => response.data)
     .then(repos => repos.filter(repo => repo.name.startsWith("tmp-")))
