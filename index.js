@@ -1,11 +1,8 @@
 const { Toolkit } = require("actions-toolkit");
 
-Toolkit.run(tools => {
-  tools.github.authenticate({
-    type: "token",
-    token: `token ${process.env.PAT}`
-  });
+process.env.GITHUB_TOKEN = process.env.PAT;
 
+Toolkit.run(tools => {
   const options = tools.github.repos.list.endpoint.merge({
     affiliation: "owner"
   });
